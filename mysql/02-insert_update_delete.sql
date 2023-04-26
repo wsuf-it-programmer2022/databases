@@ -29,6 +29,12 @@ update hbo.actor
 set first_name = 'James'
 where actor_id = 1;
 
--- Delete
+update hbo.actor
+set first_name = 'James'
+where like 'J%';
+
 delete from hbo.actor
 where actor_id = 1;
+
+delete from hbo.actor
+where actor_id in (2,3,4);
