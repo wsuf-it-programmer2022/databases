@@ -44,16 +44,27 @@ insert into school.student_class
 (3,2),
 (3,3);
 
-select * from school.students;
 select * from school.classes;
+select * from school.students;
 select * from school.student_class;
 
 
 -- 1. Which Student is attended to any course? We need the Name of the student
 
 -- the id's of the students who took any course:
-select distinct studentid from school.student_class;
+select distinct StudentId from school.student_class;
 
-select distinct StudentName, students.StudentId from school.student_class
+
+
+
+select distinct StudentName from school.student_class
 inner join school.students on students.StudentId = student_class.StudentId;
 
+select distinct StudentName from school.students
+inner join school.student_class on students.StudentId = student_class.StudentId;
+
+-- select distinct StudentName from school.students
+-- inner join school.student_class on students.id = student_class.StudentId;
+
+select distinct StudentName from school.student_class
+inner join school.students using(StudentId)
