@@ -34,12 +34,12 @@ async function run() {
     //   _id: 'driver1'
     // });
 
-    // await carFleet.collection('cars').insertOne({
-    //   name: 'Opel Corsa',
-    //   price: 9999,
-    //   description: 'A very nice car',
-    //   driver: 'driver1'
-    // });
+    await carFleet.collection('cars').insertOne({
+      name: 'Opel Corsa',
+      price: 9999,
+      description: 'A very nice car',
+      driver: 'driver1'
+    });
 
     // which person is driving the Opel Corsa?
     const opelCorsa = await carFleet.collection('cars').findOne({

@@ -21,7 +21,23 @@ async function run() {
         make: 'Ford',
         model: 'Mustang',
         year: 1964,
-        price: Decimal128.fromString('25000.00')
+        price: Decimal128.fromString('25000.00'),
+        description: 'A classic car'
+      });
+
+    // schema is not enforced in mongodb, so we can insert a car document with
+    // a different structure
+
+    await client
+      .db('carfleet')
+      .collection('cars')
+      .insertOne({
+        type: 'Ford Mustang',
+        driver: {
+          name: 'John Doe',
+          age: 42,
+          license: 'B'
+        }
       });
 
     // dataTypes in Mongodb:
